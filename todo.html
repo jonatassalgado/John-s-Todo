@@ -1,0 +1,25 @@
+<head>
+  <title>Todo List</title>
+</head>
+
+<body>
+	<div class="container">
+		<header>
+			<h1>John's Todos</h1>
+		</header>
+		
+		<form action="" class="new-task">
+			<input type="text" name="text" placeholder="Type your task here">
+		</form>
+
+		<ul>
+			{{#each tasks}}
+				{{>task}}
+			{{/each}}
+		</ul>
+	</div>
+</body>
+
+<template name="task">
+	<li>{{text}}</li>
+</template>
