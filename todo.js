@@ -8,6 +8,7 @@ if (Meteor.isClient) {
     }
   });
 
+
   Template.body.events({
     "submit .new-task": function (event){
       
