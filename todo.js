@@ -4,7 +4,7 @@ if (Meteor.isClient) {
   
   Template.body.helpers({
     tasks: function(){
-      return Tasks.find({});
+      return Tasks.find({}, {sort: {createdAt: -1}});
     }
   });
 
@@ -28,6 +28,16 @@ if (Meteor.isClient) {
     }
   })
 
+
+  Template.task.events({
+    "click .toggle-checked": function(){
+      // Set the checked property to the opposite
+      Tasks.update(this._id, {$set: {checked: ! this.checked}});
+    },
+    "click .delete": function(){
+      Tasks.remove(this._id);
+    }
+  })
 
 }
 
